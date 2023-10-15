@@ -79,11 +79,12 @@ jobs:
             kubectl get nodes
             kubectl create deployment finalproject --image=kamu9598/finalproject &&
               kubectl expose deployment/finalproject --type="LoadBalancer" --port 80
+              sleep 20
             kubectl get deployments,rs,svc,pods
 
 
 workflows:
-  captone:
+  finalproject:
     jobs:
       - setup-environment
       - build-docker:
